@@ -80,7 +80,7 @@ def otr(lat, lng):
 
 def rtd(lat, lng):
     # API key for Google Maps Distance Matrix API
-    api_key = "AIzaSyBhWkYip650cJNOlOWUalhq3IBKitF96HE"
+    api_key = "#############################"
     # URL for the API call
     url = f"https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins={random_location.raw['lat']},{random_location.raw['lon']}&destinations={lat},{lng}&key={api_key}"
     # Make the API call and get the response
