@@ -6,13 +6,14 @@ from random import uniform
 
 RED = '\033[91m'
 GREEN = '\033[92m'
+MAGENTA = '\033[95m'
 END = '\033[0m'
 RED_BG = '\033[101m'
 GREEN_BG = '\033[102m'
 
-print(GREEN_BG + "*" * 40 + END)
-print(GREEN_BG + "ONBOARD 앱을 실행하셨습니다!            " + END )
-print(GREEN_BG + "*" * 40 + END )
+print("*" * 40)
+print("ONBOARD 앱을 실행하셨습니다!  ")
+print("*" * 40)
 
 
 # Function to get the latitude and longitude of an address
@@ -125,9 +126,14 @@ trans_eta2 = datetime.datetime.strftime(smallest_eta, '%H시%M분')
 print(RED + "예상 도착 시간은: " + END + str(trans_eta) + " " + str(trans_eta2) + " 입니다.")
 now = datetime.datetime.now()
 eta_seconds = int((smallest_eta - now).total_seconds())
-print("예상 소요 시간은: " + str(int(eta_seconds/60)) + "분입니다.")
+print(RED + "예상 소요 시간은: " + END + str(int(eta_seconds/60)) + "분입니다.")
 # print("이용 가격: ", round((abs(eta_seconds)*0.01), 2), " 달러입니다.")
-answer = input("원하시는 목적지를 입력해주시기 바랍니다: ")
+
+print("*" * 40)
+answer = input(MAGENTA + "원하시는 목적지를 입력해주시기 바랍니다: " + END)
 dlat, dlng = get_coordinates(answer)
 deta = rtd(dlat,dlng)
-print("원하시는 목적지에 도착하는 예상 시간은 " + str(deta))
+trans_deta = datetime.datetime.strftime(deta, '%Y년%m월%d일')
+trans_deta2 = datetime.datetime.strftime(deta, '%H시%M분')
+print(MAGENTA + "원하시는 목적지에 도착하는 예상 시각 :"  + END + str(trans_deta) + " " + str(trans_deta2))
+
